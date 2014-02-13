@@ -1,0 +1,276 @@
+/*** Template Dark ***/
+.cycloneslider-template-caption{
+	height: 100%;
+    margin-bottom: 30px;
+	outline: none;
+	padding-bottom: 0;
+	position:relative;
+}
+.cycloneslider-template-caption .cycloneslider-slides{
+	position:relative;
+	overflow:hidden;
+}
+.cycloneslider-template-caption .cycloneslider-slide{
+	text-align: center;
+	width: 100%; /* For slides in scrollHorz to work */
+	display: none; /* Hide slides to prevent FOUC when JS hasn't kicked in yet */
+}
+.cycloneslider-template-caption .cycloneslider-slides.cycle-slideshow-bg{
+	background: #000;
+	filter:alpha(opacity=85); /* For IE8 and earlier */
+	height: 100%;
+	opacity:0.85;
+	position: absolute;
+	width: 940px;
+}
+.cycloneslider-template-caption .cycle-slide{
+	display: block; /* Show slide so that getBoundingClientRect().height will not return 0. Class .cycle-slide is added when cycle has initialized. */
+}
+.cycloneslider-template-caption div[data-cycle-dynamic-height="off"] .cycloneslider-slide-image{
+	height: 100%; /* To prevent cutting off captions when dynamic height is off */
+}
+.cycloneslider-template-caption .cycloneslider-slide:first-child, /* Show first slide */
+.cycloneslider-template-caption .cycle-sentinel + .cycloneslider-slide{ /* Select next slide when using sentinel slide */
+	display: block;
+}
+.cycloneslider-template-caption .cycloneslider-slide img{
+	display:block;
+	padding:0;
+	max-width:100%;
+	border:0;
+	max-height: 235px;
+}
+.cycloneslider-template-caption.cycloneslider-width-full .cycloneslider-slide img{
+	width:100%;
+}
+.cycloneslider-template-caption .cycloneslider-slide iframe, /* Make our videos fluid */
+.cycloneslider-template-caption .cycloneslider-slide object,
+.cycloneslider-template-caption .cycloneslider-slide embed {
+	position: absolute;
+	left: 0;
+	top: 0;
+    width: 100% !important; /* Override width attrib */
+    height: 100% !important; /* Override height attrib */
+}
+.cycloneslider-template-caption .cycloneslider-slide-youtube,
+.cycloneslider-template-caption .cycloneslider-slide-vimeo{
+	background: #000;
+}
+.cycloneslider-template-caption .cycloneslider-slide-custom,
+.cycloneslider-template-caption .cycloneslider-slide-testimonial{
+	min-height: 100%;
+}
+.cycloneslider-template-caption div[data-cycle-dynamic-height="on"] .cycloneslider-slide-custom,
+.cycloneslider-template-caption div[data-cycle-dynamic-height="on"] .cycle-sentinel + .cycloneslider-slide-testimonial{
+	min-height: 100px; /* Disable 100% min height when dynamic height is on. To fix issue with scrollHorz */
+}
+.cycloneslider-template-caption .cycloneslider-slide-testimonial{
+	font-style: italic;
+}
+.cycloneslider-template-caption .cycloneslider-slide-testimonial blockquote{
+	margin-bottom: 0;
+}
+.cycloneslider-template-caption .cycloneslider-slide-testimonial p{
+	margin: 0;
+}
+.cycloneslider-template-caption .cycloneslider-slide-testimonial .cycloneslider-testimonial-author{
+	text-align: right;
+	font-style: normal;
+}
+.rtl .cycloneslider-template-caption .cycloneslider-slide-testimonial .cycloneslider-testimonial-author{
+	text-align: left;
+}
+.cycloneslider-template-caption .cycloneslider-slide-testimonial .cycloneslider-testimonial-author a{
+	text-decoration: none;
+}
+
+/*** Prev/Next ***/
+.cycloneslider-template-caption .cycloneslider-prev,
+.cycloneslider-template-caption .cycloneslider-next,
+.cycloneslider-template-caption .cycloneslider-pager span {
+	cursor:pointer;
+}
+.cycloneslider-template-caption .cycloneslider-prev,
+.cycloneslider-template-caption .cycloneslider-next{
+    position:absolute;
+    top:50%;
+    z-index:501;
+	display: block;
+    margin-top:-15px;
+    width:30px;
+    height:30px;
+    background: #fff;
+	opacity: 0.2;
+	-webkit-transition: all 0.5s ;
+	-moz-transition: all 0.5s ;
+	-ms-transition: all 0.5s ;
+	-o-transition: all 0.5s ;
+	transition: all 0.5s ;
+}
+
+
+.cycloneslider-template-caption .cycloneslider-prev:hover,
+.cycloneslider-template-caption .cycloneslider-next:hover{
+	opacity: 1;
+}
+.cycloneslider-template-caption .cycloneslider-prev.disabled,
+.cycloneslider-template-caption .cycloneslider-next.disabled{
+	display: none;
+}
+.cycloneslider-template-caption .arrow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -6px;
+    width: 0;
+    height: 0;
+}
+.cycloneslider-template-caption .cycloneslider-prev{
+    left:0;
+}
+.rtl .cycloneslider-template-caption .cycloneslider-prev{
+    left:auto;
+	right:0;
+}
+.cycloneslider-template-caption .cycloneslider-prev .arrow{
+    margin-left: -4px;
+	border-top: 6px solid transparent;
+	border-right: 6px solid #000;
+	border-bottom: 6px solid transparent;
+}
+.rtl .cycloneslider-template-caption .cycloneslider-prev .arrow{
+    margin-left: -2px;
+	border: 0;
+	border-top: 6px solid transparent;
+	border-left: 6px solid #000;
+	border-bottom: 6px solid transparent;
+}
+.cycloneslider-template-caption .cycloneslider-next{
+    right:0;
+}
+.rtl .cycloneslider-template-caption .cycloneslider-next{
+    right:auto;
+	left:0;
+}
+.cycloneslider-template-caption .cycloneslider-next .arrow{
+    margin-left: -2px;
+	border-top: 6px solid transparent;
+	border-left: 6px solid #000;
+	border-bottom: 6px solid transparent;
+}
+.rtl .cycloneslider-template-caption .cycloneslider-next .arrow{
+    margin-left: -4px;
+	border: 0;
+	border-top: 6px solid transparent;
+	border-right: 6px solid #000;
+	border-bottom: 6px solid transparent;
+}
+
+/*** Pager ***/
+.cycloneslider-template-caption .cycloneslider-pager{
+    position:absolute;
+    bottom:-22px;
+    left:0;
+    z-index:100;
+    width: 100%;
+    height: 12px;
+    text-align: center;
+}
+.cycloneslider-template-caption .cycloneslider-pager span {
+    display: inline-block;
+    margin: 0 4px;
+    width: 12px;
+    height: 12px;
+    background: #333;
+    vertical-align: top;
+    font-size: 0;
+    line-height: 0;
+	-webkit-box-shadow: 1px 1px 2px 0px #000;
+    box-shadow: 1px 1px 2px 0px #000;
+}
+.ie7 .cycloneslider-template-caption .cycloneslider-pager span{
+	zoom: 1;/* IE 7 inline-block */
+	*display: inline;/* IE 7 inline-block */
+}
+.cycloneslider-template-caption .cycloneslider-pager span.cycle-pager-active {
+    background-color: #ccc;
+}
+
+/*** Caption ***/
+.cycloneslider-template-caption .cycloneslider-caption{
+    position:relative;
+//    top:0;
+//    left:0;
+    z-index:500;
+	max-width:60%;
+	margin: 25px 30px 0;
+	text-align: left;
+}
+.rtl .cycloneslider-template-caption .cycloneslider-caption{
+	text-align: right;
+	left: auto;
+	right:0;
+}
+.cycloneslider-template-caption .cycloneslider-caption-title,
+.cycloneslider-template-caption .cycloneslider-caption-description,
+.cycloneslider-template-caption .cycloneslider-caption-more{
+	display: none;
+	float: left;
+	clear: both;
+	margin-bottom:1px;
+	padding:10px;
+}
+.cycloneslider-template-caption .cycloneslider-caption-more img{
+	display: inline-block;
+	margin-left: 5px;
+}
+.rtl .cycloneslider-template-caption .cycloneslider-caption-title,
+.rtl .cycloneslider-template-caption .cycloneslider-caption-description,
+.rtl .cycloneslider-template-caption .cycloneslider-caption-more{
+	float: right;
+}
+.cycloneslider-template-caption .cycloneslider-caption-title{
+	color:#fff;
+    font-size:30px;
+    line-height:1.2;
+    padding: 0;
+}
+.cycloneslider-template-caption .cycloneslider-caption-image{
+	margin: 85px 0 0 30px;
+	overflow: hidden;
+	padding: 0;
+	width: 45%;
+}
+.cycloneslider-template-caption .cycloneslider-caption-description{
+	color:#fff;
+    font-size:14px;
+    line-height:1.5;
+    position: absolute;
+    right: 25px;
+    text-align: left;
+    top: 75px;
+    width: 45%;
+}
+.cycloneslider-template-caption .cycloneslider-caption-description a {
+	color: #ff9933;
+}
+.cycloneslider-template-caption .cycloneslider-caption-more{
+	color:#ff9933;
+    font-size:14px;
+	text-decoration: none;
+    line-height:1.5;
+    margin: 0;
+    padding: 0;
+}
+
+/*** Responsive ***/
+@media (max-width: 960px) {
+	.cycloneslider-template-caption .cycloneslider-caption{
+		max-width: 100%;
+	}
+}
+@media (max-width: 680px) {
+	.cycloneslider-template-caption{
+		display: none;
+	}
+}
