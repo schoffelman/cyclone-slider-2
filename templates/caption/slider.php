@@ -48,6 +48,8 @@ define('TEMPLATE_PATH', '/wp-content/plugins/cyclone-slider-2/templates/caption/
                                     <a class="cycloneslider-caption-title" target="<?php echo $link_target; ?>" href="<?php echo esc_url( $slide['link'] );?>">
                                         <?php echo wp_kses_post( $slide['title'] );?>
                                     </a>
+                                <?php else: ?>
+                                    <?php echo wp_kses_post( $slide['title'] );?>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -57,6 +59,8 @@ define('TEMPLATE_PATH', '/wp-content/plugins/cyclone-slider-2/templates/caption/
                             <a class="cycloneslider-caption-title" target="<?php echo $link_target; ?>" href="<?php echo esc_url( $slide['link'] );?>">
                                 <img src="<?php echo cyclone_slide_image_url($slide['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
                             </a>
+                        <?php else: ?>
+                            <img src="<?php echo cyclone_slide_image_url($slide['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
                         <?php endif; ?>
                     </div>
                     <?php if ( !empty($slide['description']) ) : ?>
