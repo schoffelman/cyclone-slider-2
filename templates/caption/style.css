@@ -22,7 +22,8 @@
 	height: 100%;
 	opacity:0.85;
 	position: absolute;
-	width: 940px;
+	max-width: 940px;
+	min-width: 100%;
 }
 .cycloneslider-template-caption .cycle-slide{
 	display: block; /* Show slide so that getBoundingClientRect().height will not return 0. Class .cycle-slide is added when cycle has initialized. */
