@@ -52,6 +52,18 @@ define('TEMPLATE_PATH', '/wp-content/plugins/cyclone-slider-2/templates/caption/
                                     <?php echo wp_kses_post( $slide['title'] );?>
                                 <?php endif; ?>
                             </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div style="clear:both;"></div>
+                    <?php endif; ?>
+                    <?php if ( !empty($slide['description']) ) : ?>
+                        <div class="cycloneslider-caption-description">
+                            <p><?php echo wp_kses_post( $slide['description'] );?></p>
+                            <?php if( 'lightbox' == $slide['link_target'] ): ?>
+                                <a class="cycloneslider-caption-more magnific-pop" target="<?php echo $link_target; ?>" href="<?php echo esc_url( $slide['full_image_url'] ); ?>" alt="<?php echo $slide['img_alt'];?>"><?php _e('View Larger Image', 'cycloneslider'); ?></a>
+                            <?php elseif ( '' != $slide['link'] ) : ?>
+                                <a class="cycloneslider-caption-more" target="<?php echo $link_target; ?>" href="<?php echo esc_url( $slide['link'] );?>"><?php _e('Learn More', 'cycloneslider'); ?><img src="<?php echo TEMPLATE_PATH; ?>/images/readmore-green-right-arrow.png" alt="read more" /></a>
+                            <?php endif; ?>
                         </div>
                     <?php endif; ?>
                     <div class="cycloneslider-caption-image">
@@ -63,16 +75,6 @@ define('TEMPLATE_PATH', '/wp-content/plugins/cyclone-slider-2/templates/caption/
                             <img src="<?php echo cyclone_slide_image_url($slide['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
                         <?php endif; ?>
                     </div>
-                    <?php if ( !empty($slide['description']) ) : ?>
-                        <div class="cycloneslider-caption-description">
-                            <p><?php echo wp_kses_post( $slide['description'] );?></p>
-                            <?php if( 'lightbox' == $slide['link_target'] ): ?>
-                                <a class="cycloneslider-caption-more magnific-pop" target="<?php echo $link_target; ?>" href="<?php echo esc_url( $slide['full_image_url'] ); ?>" alt="<?php echo $slide['img_alt'];?>"><?php _e('View Larger Image', 'cycloneslider'); ?></a>
-                            <?php elseif ( '' != $slide['link'] ) : ?>
-                                <a class="cycloneslider-caption-more" target="<?php echo $link_target; ?>" href="<?php echo esc_url( $slide['link'] );?>"><?php _e('Learn More', 'cycloneslider'); ?><img src="<?php echo TEMPLATE_PATH; ?>/images/readmore-green-right-arrow.png" alt="read more" /></a>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif; ?>
                 </div>
             <?php endif; ?>
         <?php endforeach; ?>

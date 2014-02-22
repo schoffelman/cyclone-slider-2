@@ -206,6 +206,7 @@
     z-index:500;
 	max-width:60%;
 	margin: 25px 30px 0;
+	min-height: 45px;
 	text-align: left;
 }
 .rtl .cycloneslider-template-caption .cycloneslider-caption{
@@ -233,12 +234,13 @@
 }
 .cycloneslider-template-caption .cycloneslider-caption-title{
 	color:#fff;
+display: block;
     font-size:30px;
     line-height:1.2;
     padding: 0;
 }
 .cycloneslider-template-caption .cycloneslider-caption-image{
-	margin: 85px 0 0 30px;
+	margin: 15px 0 0 30px;
 	overflow: hidden;
 	padding: 0;
 	width: 45%;
@@ -247,11 +249,13 @@
 	color:#fff;
     font-size:14px;
     line-height:1.5;
-    position: absolute;
-    right: 25px;
+    float: right;
+    max-height: 245px;
+    max-width: 45%;
+    margin: 15px 30px 0 0;
+    overflow: hidden;
+    padding: 0 20px 10px 0;
     text-align: left;
-    top: 75px;
-    width: 45%;
 }
 .cycloneslider-template-caption .cycloneslider-caption-description a {
 	color: #ff9933;
@@ -273,15 +277,16 @@
 }
 @media (max-width: 680px) {
 	.cycloneslider-template-caption .cycloneslider-caption-title {
-		margin-left: .2em;
+		margin-left: 4px;
 	}
 	.cycloneslider-template-caption .cycloneslider-caption-image {
 		display: none;
 	}
 	.cycloneslider-template-caption .cycloneslider-caption-description {
-		width: 90%;
-		margin: 70px 30px 0;
-		left: 0;
-		top: 0;
+		float: left;
+		margin: 15px 30px 0 37px;
+		max-height: 245px;
+		max-width: 100%;
+		overflow: hidden;
 	}
 }
